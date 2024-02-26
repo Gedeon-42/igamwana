@@ -1,0 +1,422 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --bg--color:hsl(220, 60%, 99%);
+    --link-color:#012970;
+    --icon-color:#4154f1;
+    --green-color:#e0f8e9;
+    --orange-color:#ff771d;
+    --orange-bg:#ffecdf;
+    --box-shadow:0px 0px 20px rgb(1 41 112 / 10%);
+    scroll-behavior: smooth;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    padding: 10px 70px;
+    gap: 200px;
+    box-shadow: var(--box-shadow);
+    align-items: center;
+}
+.nav-home-links ul{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.nav-home-links ul li{
+    font-size: 18px;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+}
+.nav-home-links ul li a{
+    text-decoration: none;
+    color: black;
+}
+.get-started{
+    background-color: dodgerblue;
+    color: white !important;
+    padding: 7px;
+    width: 110px;
+    text-align: center;
+    border-radius: 18px;
+}
+.get-started a{
+    color: white !important;
+    margin-left: 20px;
+}
+.logo h1{
+    color: dodgerblue;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: bold;
+}
+/* footer design */
+.footer-home-wrapper{
+background-color: var(--bg--color);
+height: 60vh;
+position: -webkit-sticky;
+position: sticky;
+
+}
+.footer-description{
+    display: flex;
+    gap: 20px;
+    padding: 40px;
+}
+.footer-content1{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex-basis: 30%;
+    padding: 30px;
+}
+.location-home{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 18px;
+}
+.footer-content2{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 30%;
+    gap: 30px;
+    padding: 30px;
+}
+.footer-content2 ul{
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-left: 20px;
+}
+.footer-content2 ul i{
+    color: dodgerblue;
+}
+.footer-content2 ul li a{
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    margin-left: 7px;
+}
+.footer-content3{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+    gap: 30px;
+    padding: 30px;
+}
+.footer-h1-wrapper h1{
+    font-weight: bold;
+    font-size: 22px;
+    text-transform: capitalize;
+}
+.form-subscribe{
+    display: flex;
+    position: relative;
+}
+.form-subscribe input{
+    padding: 10px;
+    border-radius: 15px;
+    outline: none;
+    border-right: none;
+    border: 1px solid lightgrey;
+    width: 220px;
+}
+.form-subscribe input:focus{
+    border-color: lightgrey;
+}
+.form-subscribe button{
+    padding: 10px;
+    border-radius: 18px;
+    background-color: dodgerblue;
+    color: white;
+    position: absolute;
+    left: 42%;
+    outline: none;
+    border: none;
+}
+footer{
+    display: flex;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    padding: 10px 40px;
+    align-items: center;
+    height: 70px;
+    margin-top: -7px;
+}
+.banner-wrapper{
+background-image: url('../../images/student8.webp');
+background-repeat: no-repeat;
+background-size: cover;
+height: 80vh;
+width: 100%;    
+}
+.banner-content{
+    padding: 120px 40px;
+}
+.banner-content h1{
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}
+.banner-content h2{
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}
+.banner-content p{
+    font-size: 22px;
+    color: white;
+    margin-top: 20px;
+    text-transform: capitalize;
+}
+.get-starteds{
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    text-transform: capitalize;
+    text-decoration: none;
+    margin-top: 20px;
+    border: 2px solid white;
+    border-radius: 18px;
+    width: 150px;
+    text-align: center;
+}
+.get-starteds a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+/* about style */
+.about-banner{
+    background-color: dodgerblue;
+    color: white;
+    padding: 20px 30px;
+    text-align: center;
+}
+.about-banner h1{
+    font-size: 27px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+.about-wrapper{
+    display: flex;
+    padding: 30px 50px;
+    gap: 20px;
+}
+.about-content1{
+ flex-basis: 50%;   
+}
+.about-content1 h1{
+    margin: 10px 1px;
+    font-size: 25px;
+}
+.about-content1 p{
+    font-size: 18px;
+    line-height: 30px;
+}
+.about-content2{
+    flex-basis: 50%;
+}
+.about-content2 img{
+    width: 100%;
+    height: 70vh;
+}
+ /* student section  styles */
+ .student-section-wrapper{
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    padding:  30px 90px;
+ }
+ .student-section-content{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+ }
+ .student-section-content h1{
+    color: dodgerblue;
+    font-size: 35px;
+    text-transform: capitalize;
+    font-weight: bold;
+ }
+.student-section-content p{
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.cards-wrapper{
+    display: flex;
+    padding: 3px 40px;
+}
+.card{
+    margin: 0.5em;
+    width: calc(100%/3);
+}
+.card img{
+    width: 100%;
+    height: 200px;
+    border-radius: 7px;
+}
+.team-course-h1{
+    margin: 10px 40px;
+    color: dodgerblue;
+    font-size: 35px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+/* testmonial design */
+.testmonial-header h2{
+    font-size: 34px;
+    margin-left: 40px;
+   text-transform: uppercase;
+}
+.testmonial-header h3{
+    font-size: 20px;
+    margin-left: 40px;
+    margin-top: 30px;
+    text-transform: uppercase;
+}
+.testmonial-top img{
+    width: 70px;
+    height: 70px;
+    border-radius: 7px;
+    margin-left: -50px;
+}
+.testmonial-body{
+    border: 1px solid lightgrey;
+    padding: 30px;
+    margin-left: 10px;
+}
+.testmonial-card{
+    display: flex;
+    padding: 10px 40px;
+    gap: 70px;
+}
+.testmonial-body{
+    width: calc(100%/2);
+}
+.testmonial-top {
+    display: flex;
+    gap: 20px;
+}
+.tetmoial-name{
+    display: flex;
+    flex-direction: column;
+}
+.tetmoial-name h1{
+    font-size: 18px;
+    text-transform: capitalize;
+}
+.tetmoial-name i{
+    color: #4154f1;
+    font-size: 25px;
+}
+
+.carousel-indicators p{
+    background-color: dodgerblue !important;
+    padding: 3px !important;
+    border-radius: 50% !important;
+    width: 10px !important;
+    height: 10px !important;
+   
+}
+/* event page design */
+.event-warpper{
+padding: 20px 40px;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-column-gap: 20px;
+grid-row-gap: 20px;
+width: 100%;
+}
+ 
+
+/* contact page design */
+.contact-wrapper{
+    padding: 20px 50px;
+    display: flex;
+    gap: 20px;
+}
+.contact-content1{
+    flex-direction: column;
+    display: flex;
+    gap: 20px;
+    flex-basis: 40%;
+}
+.contact-desc{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.contact-desc i {
+    font-size: 25px;
+    color: dodgerblue;
+    
+}
+.contact-name h3{
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.contact-content2{
+   
+    flex-basis: 60%;
+}
+.contact-content2 form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.input-flex{
+    display: flex;
+    gap: 20px;
+}
+.input-flex input{
+    padding: 5px;
+    width: 330px;
+    border: 1px solid lightgrey;
+    outline: 0;
+}
+.input-flex input:focus{
+    border-color: 1px solid lightgrey;
+}
+.contact-content2 form input{
+    padding: 5px;
+    border: 1px solid lightgrey;
+    outline: 0;
+}
+.contact-content2 form input:focus{
+    border-color: 1px solid lightgrey;
+}
+.contact-content2 form textarea{
+    padding: 5px;
+    border: 1px solid lightgrey;
+    outline: 0;
+    height: 150px;
+}
+.contact-content2 form textarea:focus{
+   border-color: 1px solid lightgrey;
+}
+.contact-content2 form  button{
+    padding: 5px;
+    border: 1px solid lightgrey;
+    outline: 0;
+    background-color: dodgerblue;
+    color: white;
+    width: 150px;
+    border-radius: 12px;
+}
+@media screen and (max-width:567px) {
+    .card:not(:first-child){
+        display: none;
+    }
+}
