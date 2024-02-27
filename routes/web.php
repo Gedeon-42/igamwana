@@ -131,11 +131,11 @@ Route::delete('/admin/notice/{notice}',[NoticeController::class,'destroy']);
 
 //  routines Routes
 Route::get('/admin/routines',[RoutineController::class,'index']);
-Route::post('/admin/notice',[RoutineController::class,'store']);
-Route::get('/admin/notice/{notice}/edit',[RoutineController::class,'edit']);
-Route::put('/admin/notice/{notice}',[RoutineController::class,'update']);
+Route::post('/admin/routine',[RoutineController::class,'store']);
+Route::get('/admin/routine/{routine}/edit',[RoutineController::class,'edit']);
+Route::put('/admin/routine/{routine}',[RoutineController::class,'update']);
 Route::get('/admin/routine/create',[RoutineController::class,'create']);
-Route::delete('/admin/notice/{notice}',[RoutineController::class,'destroy']);
+Route::delete('/admin/routine/{routine}',[RoutineController::class,'destroy']);
 
 // hostel routes
 Route::get('/admin/hostels',[HostelController::class,'index']);

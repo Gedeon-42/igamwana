@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Notee;
+use App\Models\Notice;
 use Illuminate\Http\Request;
 
 class NoticeController extends Controller
 {
     //
     public function index(){
-        $notices = Notee::all();
+        $notices =Notice::all();
         return view('admin.notices.allNotice',[
             'notices'=>$notices
         ]);
@@ -19,14 +19,14 @@ class NoticeController extends Controller
 
     public function store(Request $request){
     $formDataa =  $request->validate(([
-        'title'=>'string',
-        'details'=>'string',
-        'author'=>'string',
-        'date'=>'string'
+        'title'=>'required|string',
+        'details'=>'required|string',
+        'author'=>'required|string',
+        'date'=>'required|string'
     ]));
         // dd($formData); // Debugging statement to check if validation is passing
 
-        Notee::create($formDataa);
+        Notice::create($formDataa);
 
         return redirect('/admin/notices')->with('message','notice created successfully');
     }
@@ -35,7 +35,7 @@ class NoticeController extends Controller
         return view('admin.notices.addNotice');
     }
 
-    public function update(Request $request,Notee $notice){
+    public function update(Request $request,Notice $notice){
         $formDataa = $request->validate([
             'title'=>'string',
             'details'=>'string',
@@ -46,7 +46,7 @@ class NoticeController extends Controller
         return redirect('/admin/notices')->with('message','notice updated successfully');
     }
 
-    public function edit(Notee $notice){
+    public function edit(Notice $notice){
     
         return view('admin.notices.editNotice',[
             'notice'=>$notice
@@ -54,7 +54,7 @@ class NoticeController extends Controller
     }
 
 
-    public function destroy(Notee $notice){
+    public function destroy(Notice $notice){
         $notice->delete();
         return back()->with('message','notice deleted successfully');
     }
