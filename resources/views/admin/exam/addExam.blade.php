@@ -14,12 +14,12 @@
               </div>
         </div>
             </div>
-            <form method="POST" x-data="{ loading: false }" x-on:submit="loading = true; setTimeout(() => { $refs.form.submit(); }, 5000)" action="/admin/exam" class="add-exam-form" x-ref="form">     
+            <form method="POST" x-data="{ loading: false }"  action="/admin/exam" class="add-exam-form">     
         @csrf
         <label for=""> Exam  type</label>
         <select name="exam_type" id="" value="{{old('exam_type')}}">
-            <option value="theoretical" {{old('exam_type') =='theoretical' ? 'selected':''}}>theoretical</option>
-            <option value="practical" {{old('exam_type') =='practical' ? 'selected':''}}>practical</option>
+            <option value="Theoretical" {{old('exam_type') =='theoretical' ? 'selected':''}}>Theoretical</option>
+            <option value="Practical" {{old('exam_type') =='practical' ? 'selected':''}}>Practical</option>
         </select>
 
         <label for=""> select subject</label>
@@ -35,7 +35,7 @@
         <label for="">select class</label>
         <select name="class" id="" value="{{old('class')}}" >
         <option value="year 1"   {{old('class') =='year 1' ? 'selected':''}}> year 1</option>
-        <option value="year 2"   {{old('class') =='year 3' ? 'selected':''}}> year 3</option>
+        <option value="year 2"   {{old('class') =='year 3' ? 'selected':''}}> year 2</option>
         <option value="year 3"   {{old('class') =='year 3' ? 'selected':''}}> year 3</option>
         <option value="year 4"   {{old('class') =='year 4' ? 'selected':''}}> year 4</option>
         <option value="year 5"   {{old('class') =='year 5' ? 'selected':''}}> year 5</option>

@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="abolutee">
-            <i class="fas fa-book books"></i> 
+          <i class="far fa-comment-alt books"></i>
             <div class="five-m">
                 7
             </div> 

@@ -19,7 +19,7 @@ class StudentController extends Controller
     public function store(Request $request){
         // dd($request->file('image'));
        $formData = $request->validate([
-           'FullName'=>'required',
+           'Full_name'=>'required',
             'DOB'=>'required',
             'province'=>'required',
             'district'=>'required',
@@ -34,13 +34,14 @@ class StudentController extends Controller
             'Parent'=>'required'
         ]);
 
-        // if($request->hasFile('image')){
-        //     $formData['image']= $request->file('image')->store('studImgs','public');
-        //          }
+        if($request->hasFile('image')){
+            $formData['image']= $request->file('image')->store('studImgs','public');
+                 }
         Student::create($formData);
 
-        // clear input after submittting
-        $request->session()->forget('_old_input');
+        //  clear input after submittting
+        
+        // $request->session()->forget('_old_input');
          return redirect('/admin/students')->with('message','Student added successfully');
     }
 
@@ -59,7 +60,7 @@ public function show( Student $student){
     // update student function
     public function update(Request $request,Student $student){
         $updatedData = $request->validate([
-            'FullName'=>'string',
+            'Full_name'=>'string',
             'DOB'=>'string',
             'province'=>'string',
             'district'=>'string',
@@ -69,12 +70,15 @@ public function show( Student $student){
             'yearofstudy'=>'string',
             'email'=>'required|email|exists:students,email',
             'section'=>'string',
-            'image'=>'string|nullable',
+            // 'image'=>'string|nullable',
             'gender'=>'required|string',
         ]);
+     
+
         if($request->hasFile('image')){
-            $formData['image']= $request->file('image')->store('studImgs','public');
-                 }
+                    $updatedData['image']= $request->file('image')->store('studImgs','public');
+                         } 
+                 
         $student->update($updatedData);
         return redirect('/admin/students')->with('message','student updated succesfully');
     }

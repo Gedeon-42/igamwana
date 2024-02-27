@@ -68,11 +68,8 @@ Route::get('/admin/students/{student}/edit',[StudentController::class,'edit'])->
 // route to update student
 Route::put('/admin/students/{student}/',[StudentController::class,'update'])->name('admin.editStudent');
 
-
 //route to delete student
 Route::delete('/admin/students/delete/{student}',[StudentController::class,'destroy']);
-
-
 // route to get single student
 Route::get('/admin/student/{student}',[StudentController::class,'show'])->name('admin.ShowStudent')->where([]);
 
@@ -95,7 +92,7 @@ Route::post('/admin/exam',[ExamController::class,'store']);
 Route::get('/admin/exam/{exam}/edit',[ExamController::class,'edit']);
 Route::put('/admin/exam/{exam}',[ExamController::class,'update']);
 Route::get('/admin/exam/create',[ExamController::class,'create']);
-Route::delete('/admin/exam/{exam}',[ExamController::class,'destroy']);
+Route::delete('/admin/exam/delete/{exam}/',[ExamController::class,'destroy']);
 
 // books route
 Route::get('/admin/books',[BookController::class,'index']);
@@ -103,7 +100,7 @@ Route::post('/admin/book',[BookController::class,'store']);
 Route::get('/admin/book/{book}/edit',[BookController::class,'edit']);
 Route::put('/admin/book/{book}',[BookController::class,'update']);
 Route::get('/admin/book/create',[BookController::class,'create']);
-Route::delete('/admin/book/{book}',[BookController::class,'destroy']);
+Route::delete('/admin/book/delete/{book}',[BookController::class,'destroy']);
 
 // expense Routes
 Route::get('/admin/expenses',[ExpenseController::class,'index']);
@@ -111,7 +108,7 @@ Route::post('/admin/expense',[ExpenseController::class,'store']);
 Route::get('/admin/expense/{expense}/edit',[ExpenseController::class,'edit']);
 Route::put('/admin/expense/{expense}',[ExpenseController::class,'update']);
 Route::get('/admin/expense/create',[ExpenseController::class,'create']);
-Route::delete('/admin/expense/{expense}',[ExpenseController::class,'destroy']);
+Route::delete('/admin/expense/delete/{expense}',[ExpenseController::class,'destroy']);
 
 // parent Routes
 
@@ -120,7 +117,8 @@ Route::post('/admin/parent',[ParentController::class,'store']);
 Route::get('/admin/parent/{parent}/edit',[ParentController::class,'edit']);
 Route::put('/admin/parent/{parent}',[ParentController::class,'update']);
 Route::get('/admin/parent/create',[ParentController::class,'create']);
-Route::delete('/admin/parent/{parent}',[ParentController::class,'destroy']);
+Route::delete('/admin/parent/delete/{parent}',[ParentController::class,'destroy']);
+Route::get('/admin/parent/{parent}',[ParentController::class,'show']);
 
 // Notice Routes
 Route::get('/admin/notices',[NoticeController::class,'index']);
@@ -129,6 +127,7 @@ Route::get('/admin/notice/{notice}/edit',[NoticeController::class,'edit']);
 Route::put('/admin/notice/{notice}',[NoticeController::class,'update']);
 Route::get('/admin/notice/create',[NoticeController::class,'create']);
 Route::delete('/admin/notice/{notice}',[NoticeController::class,'destroy']);
+
 
 //  routines Routes
 Route::get('/admin/routines',[RoutineController::class,'index']);

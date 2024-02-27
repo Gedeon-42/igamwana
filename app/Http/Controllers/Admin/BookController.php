@@ -16,7 +16,6 @@ class BookController extends Controller
     ]);
     }
 
-
     public function store(Request $request){
         $formData = $request->validate([
             'book_name'=>'string|required',

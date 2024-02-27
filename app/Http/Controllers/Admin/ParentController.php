@@ -15,37 +15,35 @@ class ParentController extends Controller
         'parents'=>$parents
        ]);
     }
-
-
     public function store(Request $request){
-
         $formdata = $request->validate([
             'fatherName'=>'required|string',
             'motherName'=>'required|string',
             'phone'=>'required|string',
             'nationality'=>'required|string',
             'address'=>'required|string',
-            // 'prtImage',
+            'prtImage' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'studentFname'=>'required|string',
             'studentLname'=>'required|string',
             'section'=>'required|string',
             'class'=>'required|string',
             'gender'=>'required|string',
             'studBirthdate'=>'required|string',
-            // 'studImage'
+            'studImage' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+    
         if($request->hasFile('prtImage')){
-
-            $formdata['prtImage'] = $request->file('prtImage')->store('public','prtImage');
+            $formdata['prtImage'] = $request->file('prtImage')->store('prtImage','public');
         }
-    //   elseif($request->hasFile('studImage')){
-    //     $formdata['studImage'] = $request->file('studImage')->store('public','stdImage2');
-    //   }
-
+    
+        if($request->hasFile('studImage')){
+            $formdata['studImage'] = $request->file('studImage')->store('studImg','public');
+        }
+        
+    
         Guardian::create($formdata);
-         return redirect('/admin/parents')->with('message','parent added successfully');
+        return redirect('/admin/parents')->with('message','parent added successfully');
     }
-
 
     public function create(){
         return view('admin.parents.addParent');
@@ -58,22 +56,23 @@ class ParentController extends Controller
             'phone'=>'string',
             'nationality'=>'string',
             'address'=>'string',
-            // 'prtImage',
+            //  'prtImage' => 'max:2048',
             'studentFname'=>'string',
             'studentLname'=>'string',
             'section'=>'string',
             'class'=>'string',
             'gender'=>'string',
-            'studBirthdate'=>'string',
-            // 'studImage'
+            'studBirthdate'=>'date',
+            //  'studImage' => 'max:2048',
         ]);
-    //     if($request->hasFile('prtImage')){
-
-    //         $formdata['prtImage'] = $request->file('prtImage')->store('public','prtImage');
-    //     }
-    //   else if($request->hasFile('studImage')){
-    //     $formdata['studImage'] = $request->file('studImage')->store('public','stdImage2');
-    //   }
+        if($request->hasFile('prtImage')){
+            $formdata['prtImage'] = $request->file('prtImage')->store('prtImage','public');
+        }
+    
+        if($request->hasFile('studImage')){
+            $formdata['studImage'] = $request->file('studImage')->store('studImg','public');
+        }
+        
         $parent->update($formdata);
          return redirect('/admin/parents')->with('message','parent updated successfully');
     }
@@ -84,11 +83,16 @@ class ParentController extends Controller
         ]);
     }
 
+    public function show(Guardian $parent){
+        return view('admin.parents.showParent',[
+            'parent'=>$parent
+        ]);
+    }
 
-    public function delete(Guardian $parent){
+    public function destroy(Guardian $parent){
     
     $parent->delete();
-return back()->with('message','parent created successfully');
+      return back()->with('message','parent deleted successfully');
     
     }
 }

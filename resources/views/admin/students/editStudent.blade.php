@@ -3,7 +3,7 @@
 @section('content')
 <div class="student-form-wrapper">
     <div class="top-student-detail">
-        <h4> Edit student form</h4>
+        <h4> Add student form</h4>
         <i class="fas fa-times"></i>
     </div>
     <form action="/admin/students/{{$student['id']}}" enctype="multipart/form-data" method="post">
@@ -11,14 +11,14 @@
         @method('PUT')
     <div class="student-information-wrapper">
 <div class="student-information-desc">
-    <label for="FullName">Names <span>*</span></label>
+    <label for="Full_name">Names <span>*</span></label>
     <div>
-        @error('FullName')
+        @error('Full_name')
         <p class="errors">
             {{ $message }}
         </p>
     @enderror
-        <input type="text" class="@error('FullName') error_border @enderror" name="FullName" value={{ $student['FullName'] }}>
+        <input type="text" placeholder="full name" class="@error('Full_name') error_border @enderror" name="Full_name" value={{$student['Full_name'] }}>
     </div>
   
 </div>
@@ -30,7 +30,8 @@
             {{ $message }}
         </p>
     @enderror
-    <input type="email" class="@error('email') error_border @enderror" name="email" value="{{ $student['email'] }}" placeholder=" contact email"><br>
+
+    <input type="email" class="@error('email') error_border @enderror" name="email" value={{$student['email'] }} placeholder=" contact email"><br>
     </div>
    
 </div>
@@ -38,7 +39,7 @@
     <label for="province">province<span>*</span></label>
     <div>
         {{-- <input type="text" class="@error('province') border-error @enderror" > --}}
-<select name="province" value={{$student['province']}} id="province">
+<select name="province" value={{$student['province'] }} id="province">
     <option value="" disabled selected> select province</option>
     <option value="North" {{old('province') == 'North' ? 'selected': ''}}>North</option>
     <option value="West" {{old('province') == 'West' ? 'selected': ''}}>West</option>
@@ -62,7 +63,7 @@
             {{ $message }}
         </p>
     @enderror
-        <input type="text" class="@error('district') border-error @enderror" name="district" value={{$student['district']}}>
+        <input type="text" class="@error('district') border-error @enderror" placeholder="district" name="district" value={{$student['district'] }} >
     </div>
  
 </div>
@@ -74,7 +75,7 @@
             {{ $message }}
         </p>
     @enderror
-        <input type="text" class="@error('sector') border-error @enderror" placeholder="sector" name="sector" value={{$student['sector']}} >
+        <input type="text" class="@error('sector') border-error @enderror" placeholder="sector" name="sector" value={{$student['sector'] }} >
     </div>
 </div>
 <div class="student-information-desc">
@@ -85,7 +86,7 @@
             {{ $message }}
         </p>
     @enderror
-        <input type="text" class="@error('cell') border-error @enderror" name="cell" value={{$student['cell']}}>
+        <input type="text" placeholder="cell" class="@error('cell') border-error @enderror" name="cell" value={{$student['cell'] }}>
     </div>
 </div>
 <div class="student-information-desc">
@@ -96,8 +97,19 @@
             {{ $message }}
         </p>
     @enderror
-        <input type="text" class="@error('village') border-error @enderror" name="village" value={{$student['village']}}>
+        <input type="text" placeholder="village" class="@error('village') border-error  @enderror" value={{$student['village'] }} name="village" >
     </div>
+</div>
+<div class="student-information-desc">
+    <label for="village">class <span>*</span></label>
+    <select name="yearofstudy" value={{$student['yearofstudy'] }} id="">
+        <option value="year 1" {{old('yearofstudy') == "year 1" ? 'selected':''}}>year 1</option>
+        <option value="year 2" {{old('yearofstudy') == "year 2" ? 'selected':''}}>year 2</option>
+        <option value="year 3" {{old('yearofstudy') == "year 3" ? 'selected':''}}>year 3</option>
+        <option value="year 4" {{old('yearofstudy') == "year 4" ? 'selected':''}}>year 4</option>
+        <option value="year 5" {{old('yearofstudy') == "year 5" ? 'selected':''}}>year 5</option>
+        <option value="year 6" {{old('yearofstudy') == "year 6" ? 'selected':''}}>year 6</option>
+    </select>
 </div>
 <div class="student-information-desc">
     <label for="DOB">birth date<span>*</span></label>
@@ -107,43 +119,33 @@
         <p class="errors">
             {{ $message }}
         </p>
-        
     @enderror
-        <input type="date" class="@error('DOB') border-error @enderror" name="DOB" value={{$student['DOB']}}>
+        <input type="date"  name="DOB" value={{$student['DOB'] }}>
     </div>
 </div>
-<div class="student-information-desc">
-    <label for="yearofstudy">year of study <span>*</span></label>
+{{-- <div class="student-information-desc">
+    <label for="village">village<span>*</span></label>
     <div>
-        <select  id="yearofstudy" name="yearofstudy" value="{{$student['yearofstudy']}}">
-            <option value="" disabled  selected> choose year</option>
-            <option value="1" {{old('yearofstudy') == 'year1' ? 'selected': ''}}> year 1</option>
-            <option value="1" {{old('yearofstudy') == 'year 2' ? 'selected': ''}}>year 2</option>
-            <option value="1" {{old('yearofstudy') == 'year 3' ? 'selected': ''}}>year 3</option>
-            <option value="1" {{old('yearofstudy') == 'year 4' ? 'selected': ''}}>year 4</option>
-            <option value="1" {{old('yearofstudy') == 'year 5' ? 'selected': ''}}>year 5</option>
-            <option value="1">year 6</option>
-        </select>
-        @error('yearofstudy')
+        @error('village')
         <p class="errors">
             {{ $message }}
         </p>
     @enderror
-        
+        <input type="text" placeholder="village" name="village" value={{old('village')}}>
     </div>
-</div>
+</div> --}}
 
 <div class="student-information-desc">
     <label for="section">section <span>*</span></label>
     <div>
-        <select name="section" id="section" value="{{$student['section']}} >
-            <option value="" disabled selected >choose section</option>
+        <select name="section" id="section" value="{{old('section')}}" >
+            {{-- <option value="" disabled selected> choose section</option> --}}
             <option value="Olevel" {{old('section') == 'Olevel' ? 'selected': ''}}>Olevel</option>
             <option value="MPC" {{old('section') == 'MPC' ? 'selected': ''}}>MPC</option>
             <option value="PCM" {{old('section') == 'PCM' ? 'selected': ''}}>PCM</option>
-            <option value="PCB" {{old('section') == 'PCB' ? 'selected': ''}}">PCB</option>
-            <option value="MCB" {{old('section') == 'MCB' ? 'selected': ''}}">MCB</option>
-            <option value="MEG" {{old('section') == 'MEG' ? 'selected': ''}}">MEG</option>
+            <option value="PCB" {{old('section') == 'PCB' ? 'selected': ''}}>PCB</option>
+            <option value="MCB" {{old('section') == 'MCB' ? 'selected': ''}}>MCB</option>
+            <option value="MEG" {{old('section') == 'MEG' ? 'selected': ''}}>MEG</option>
         </select>
         @error('section')
         <p class="errors">
@@ -161,7 +163,7 @@
             {{ $message }}
         </p>
     @enderror
-        <input type="text" class="@error('Parent') border-error @enderror" name="Parent" value={{$student['Parent']}}>
+        <input type="text" placeholder="guardian name" class="@error('Parent') border-error @enderror" name="Parent" value={{$student['Parent'] }}>
     </div>
 </div>
 <div class="student-information-desc">
@@ -183,6 +185,7 @@
 <div class="student-information-desc">
     <label for="gender">Photo<span>*</span></label>
    <input type="file" name="image">
+   {{-- <img src="{{old('image')}}" alt=""> --}}
 </div>
 <div class="student-information-desc">
     <label for="Phone">Phone Number<span>*</span></label>
@@ -192,7 +195,7 @@
         {{ $message }}
     </p>
 @enderror
-    <input type="text" class="@error('Phone') border-error @enderror" name="Phone" value={{$student['Phone']}}>
+    <input type="text" placeholder="Phone number" class="@error('Phone') border-error @enderror" name="Phone"  value={{$student['Phone'] }} >
 </div>
 </div>
     </div>

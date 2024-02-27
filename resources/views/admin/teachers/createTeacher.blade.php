@@ -107,6 +107,7 @@
             {{ $message }}
         </p>
     @enderror
+    
         <input type="date" class="@error('DOB') border-error @enderror" name="DOB" value={{old('DOB')}}>
     </div>
 </div>

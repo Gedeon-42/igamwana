@@ -6,7 +6,7 @@
         <div class="add-parent-top">
             <h1 class="parent-stud-info">add parent form</h1>
         </div>
-     <form action="/admin/parent" method="post" class="parent-form-container">
+     <form action="/admin/parent" enctype="multipart/form-data" method="post" class="parent-form-container">
         @csrf
         <h1 class="parent-stud-info">Parent Information</h1>
         <div class="parent-info">
@@ -17,6 +17,7 @@
                <p class="errors">{{$message}}</p> 
             @enderror
         </div>
+        
         <div class="parent-desc">
             <label for="">Mother's  Names</label>
             <input type="text" name="motherName" value="{{old('motherName')}}" placeholder="Mother's names" id="">
@@ -48,13 +49,16 @@
         <div class="parent-desc">
             <label for="">Parent Photo</label>
             <input type="file"  name="prtImage">
+            @error('prtImage')
+            <p class="errors">{{$message}}</p>
+        @enderror
         </div>
         </div>
         <h1 class="parent-stud-info">Student Information</h1>
         <div class="parent-info">
             <div class="parent-desc">
                 <label for="">Student Firstname </label>
-                <input type="text" name="studentFname" value="{{old('studentFName')}}" placeholder="first name" id="">
+                <input type="text" name="studentFname" value="{{old('studentFname')}}" placeholder="first name" id="">
                 @error('studentFname')
                 <p class="errors">{{$message}}</p> 
              @enderror
@@ -83,12 +87,13 @@
                 <label for="">year of study</label>
                 {{-- <input type="text" name="class"  placeholder="" id=""> --}}
                 <select name="class" value="{{old('class')}}" id="">
-                    <option value="year 1" {{old('province') == "year 1" ? 'selected':''}}>year 1</option>
-                    <option value="year 2" {{old('province') == "year 2" ? 'selected':''}}>year 2</option>
-                    <option value="year 3" {{old('province') == "year 3" ? 'selected':''}}>year 3</option>
-                    <option value="year 4" {{old('province') == "year 4" ? 'selected':''}}>year 4</option>
-                    <option value="year 5" {{old('province') == "year 5" ? 'selected':''}}>year 5</option>
-                    <option value="year 6" {{old('province') == "year 6" ? 'selected':''}}>year 6</option>
+                    <option value="" disabled> select class</option>
+                    <option value="year 1" {{old('class') == "year 1" ? 'selected':''}}>year 1</option>
+                    <option value="year 2" {{old('class') == "year 2" ? 'selected':''}}>year 2</option>
+                    <option value="year 3" {{old('class') == "year 3" ? 'selected':''}}>year 3</option>
+                    <option value="year 4" {{old('class') == "year 4" ? 'selected':''}}>year 4</option>
+                    <option value="year 5" {{old('class') == "year 5" ? 'selected':''}}>year 5</option>
+                    <option value="year 6" {{old('class') == "year 6" ? 'selected':''}}>year 6</option>
                 </select>
             </div>
             <div class="parent-desc">
@@ -109,7 +114,11 @@
             <div class="parent-desc">
                 <label for="">Student Photo</label>
                 <input type="file"  name="studImage">
+                @error('studImage')
+                <p class="errors">{{$message}}</p>
+            @enderror
             </div>
+
             </div>
 <div class="add-book-btn">
     <button class="btn-add-book">add</button>

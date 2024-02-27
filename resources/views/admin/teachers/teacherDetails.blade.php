@@ -6,12 +6,12 @@
         <i class="fas fa-times"></i>
     </div>
     <div class="student-detail-body">
-        <img src="/images/riyad3.jpg" class="student-img"  alt="">
+        <img src="{{$teacher->image ? asset('storage/' . $teacher->image ):asset('images/noImage.jpg')}}" class="student-img" alt=""/>
         <div class="student-details">
-            <h3> About me</h3>
+            <h3>Teacher detail</h3>
             <div class="student-detail-desc">
                 <span> Name:</span>
-                <p>{{$teacher['FullName']}}</p>
+                <p>{{$teacher['Fullname']}}</p>
             </div>
 
             <div class="student-detail-desc">
@@ -31,8 +31,28 @@
                 <p>{{$teacher['email']}}</p>
             </div>
             <div class="student-detail-desc">
+                <span> Course teaches: </span>
+                <p>{{$teacher['courseteach']}}</p>
+            </div>
+            <div class="student-detail-desc">
                 <span> Phone </span>
                 <p>{{$teacher['Phone']}}</p>
+            </div>
+            <div class="student-detail-desc">
+                <span> Province </span>
+                <p>{{$teacher['province']}}</p>
+            </div>
+            <div class="student-detail-desc">
+                <span> District </span>
+                <p>{{$teacher['district']}}</p>
+            </div>
+            <div class="student-detail-desc">
+                <span> sector </span>
+                <p>{{$teacher['sector']}}</p>
+            </div>
+            <div class="student-detail-desc">
+                <span> District </span>
+                <p>{{$teacher['gender']}}</p>
             </div>
         </div>
         <div class="student-detail-action">

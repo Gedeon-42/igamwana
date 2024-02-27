@@ -7,10 +7,9 @@
   <div class="norecord-class">
 <p> No record Found</p>
   </div>
-      
-  
   @else
-        <table class="table table-striped ">
+  <h1 class="h1-top-table"> all exams students</h1>
+        <table class="table">
         <thead>
           <tr class="th-top">
             <th class="th-top">check</th>
@@ -19,7 +18,7 @@
             <th class="th-top">Email</th>
             <th class="th-top">section</th>
             <th class="th-top">parent name</th>
-            <th class="th-top">DOB</th>
+            <th class="th-top">Date_of_birth</th>
             <th class="th-top">province</th>
             <th class="th-top">district</th>
             <th class="th-top">year</th>
@@ -34,9 +33,9 @@
               <input type="checkbox">
             </td>
             <td class="td-inner">
-              <img src="{{$student->image ? asset('storage/' . $student->image ) :asset('images/riyad3.jpg')}}" class="p-img"  alt=""/>
+              <img src="{{$student->image ? asset('storage/' . $student->image ) :asset('images/nophoto.png')}}" class="p-img"  alt=""/>
             </td>
-            <td class="td-inner">{{$student->FullName}}</td>
+            <td class="td-inner">{{$student->Full_name}}</td>
             <td class="td-inner">{{$student->email}}</td>
             <td class="td-inner">{{$student->section}}</td>
             <td class="td-inner">{{$student->Parent}}</td>

@@ -46,8 +46,8 @@ class TeacherController extends Controller
     public function update(Request $request,Teacher $teacher){
         $formData = $request->validate([
             'Fullname'=>'string|required',
-            'email'=>'required|email|exists:teachers,email',
-            // 'DOB'=>'string',
+            'email'=>'email|exists:teachers,email',
+             'DOB'=>'string',
             'province'=>'string',
             'district'=>'string',
             'sector'=>'string',

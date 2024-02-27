@@ -8,10 +8,11 @@
   </div>
       
   @else
-        <table class="table table-striped ">
+  <h1 class="h1-top-table"> all teachers</h1>
+        <table class="table">
         <thead>
           <tr class="th-top">
-            <th class="th-top">RegNo</th>
+            <th class="th-top">check</th>
             <th class="th-top">photo</th>
             <th class="th-top">names</th>
             <th class="th-top">Email</th>
@@ -27,14 +28,15 @@
         <tbody>
           @foreach($teachers as $teacher)
           <tr>
-            <td class="td-inner">2210</td>
+            <td class="td-inner">
+              <input type="checkbox" name="" id="">
+            </td>
             <td class="td-inner">
                <img src="{{$teacher->image ? asset('storage/' . $teacher->image ) :asset('images/riyad3.jpg')}}" class="p-img"  alt=""/>
             </td>
             <td class="td-inner">{{$teacher->Fullname}}</td>
             <td class="td-inner">{{$teacher->email}}</td>
             <td class="td-inner">{{$teacher->degree}}</td>
-            <td class="td-inner">{{$teacher->Parent}}</td>
             <td class="td-inner">{{$teacher->DOB}}</td>
             <td class="td-inner">{{$teacher->province}}</td>
             <td class="td-inner">{{$teacher->district}}</td>

@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('notices', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->longText('details');
+            $table->string('details');
             $table->string('author');
             $table->string('date');
             $table->timestamps();
+
         });
     }
 

@@ -10,6 +10,7 @@
             </form>
         </div>
     </div>
+    
     <div class="notice-body">
         <div class="notice-description">
             <div class="notice-edit">

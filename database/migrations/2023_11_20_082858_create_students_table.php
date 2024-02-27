@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('FullName');
+            $table->string('Full_name');
             $table->string('DOB');
             $table->string('province');
             $table->string('district');
@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('gender');
             $table->timestamps();
+
             
         });
     }

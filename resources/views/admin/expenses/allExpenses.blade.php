@@ -7,9 +7,9 @@
 <p> No record Found</p>
   </div>
       
-
   @else
-  <table class="table table-striped ">
+  <table class="table ">
+    <h1 class="h1-top-table"> all expenses</h1>
     <thead>
       <tr class="th-top">
         <th class="th-top">check</th>
@@ -28,8 +28,9 @@
      <td>
         <input type="checkbox" name="" id="">
      </td>
-        <td class="td-inner">{{$expense->expense-type}}</td>
+        <td class="td-inner">{{$expense->expense_type}}</td>
         <td class="td-inner">{{$expense->name}}</td>
+        <td class="td-inner">{{$expense->amount}} Rwf</td>
         <td class="td-inner">{{$expense->status}}</td>
         <td class="td-inner">{{$expense->phone}}</td>
         <td class="td-inner">{{$expense->email}}</td>
@@ -42,8 +43,6 @@
             @method('DELETE')
           <button class="btn-delete-stud"> <i class="fas fa-trash delete"></i></button>
           </form>
-          
-          
         </td>
       </tr>
       @endforeach

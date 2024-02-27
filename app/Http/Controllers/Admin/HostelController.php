@@ -34,12 +34,12 @@ class HostelController extends Controller
     }
     public function update(Request $request, Hostel $hostel){
         $formData = $request->validate([
-            'name'=>'string',
-            'Room_no'=>'string',
-            'gender_type'=>'string',
-            'Room_type'=>'string',
-             'beds_no'=>'string',
-             'amount'=>'string'
+                'name'=>'string',
+                'Room_no'=>'string',
+                'gender_type'=>'string',
+                'Room_type'=>'string',
+                'beds_no'=>'string',
+                'amount'=>'string'
         ]);
 
         $hostel->update($formData);

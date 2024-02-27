@@ -19,7 +19,7 @@ class ExpenseController extends Controller
     public function store(Request $request){
 
         $formData = $request->validate([
-            'expense-type'=>'required|string',
+            'expense_type'=>'required|string',
             'name'=>'required|string',
             'amount'=>'required|string',
             'status'=>'required|string',
@@ -27,8 +27,6 @@ class ExpenseController extends Controller
             'email'=>'required|email',
             'date'=>'required|string'
         ]);
-
-
         Expense::create($formData);
         return redirect('/admin/expenses')->with('message','expenses recorded successfully');
     }
@@ -40,7 +38,7 @@ class ExpenseController extends Controller
     public function update(Request $request,Expense $expense){
         
         $formData = $request->validate([
-            'expense-type'=>'required|string',
+            'expense_type'=>'required|string',
             'name'=>'string',
             'amount'=>'string',
             'status'=>'string',
@@ -55,8 +53,8 @@ class ExpenseController extends Controller
 
     public function edit(Expense $expense){
 
-        return view('admin.expense.editExpense',[
-            '$expense'=>$expense
+        return view('admin.expenses.editExpense',[
+            'expense'=>$expense
         ]);
     }
 

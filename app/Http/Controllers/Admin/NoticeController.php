@@ -3,28 +3,31 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Notice;
+use App\Models\Notee;
 use Illuminate\Http\Request;
 
 class NoticeController extends Controller
 {
     //
     public function index(){
-        $notices = Notice::all();
+        $notices = Notee::all();
         return view('admin.notices.allNotice',[
             'notices'=>$notices
         ]);
     }
 
-    public function store(Request $request){
 
-        $formData = $request->validate([
-            'title'=>'required|string',
-            'details'=>'required|string',
-            'author'=>'required|string',
-            'date'=>'required|string'
-        ]);
-        Notice::create($formData);
+    public function store(Request $request){
+    $formDataa =  $request->validate(([
+        'title'=>'string',
+        'details'=>'string',
+        'author'=>'string',
+        'date'=>'string'
+    ]));
+        // dd($formData); // Debugging statement to check if validation is passing
+
+        Notee::create($formDataa);
+
         return redirect('/admin/notices')->with('message','notice created successfully');
     }
 
@@ -32,18 +35,18 @@ class NoticeController extends Controller
         return view('admin.notices.addNotice');
     }
 
-    public function update(Request $request,Notice $notice){
-        $formData = $request->validate([
+    public function update(Request $request,Notee $notice){
+        $formDataa = $request->validate([
             'title'=>'string',
             'details'=>'string',
             'author'=>'string',
             'date'=>'string'
         ]);
-        $notice->update($formData);
+        $notice->update($formDataa);
         return redirect('/admin/notices')->with('message','notice updated successfully');
     }
 
-    public function edit(Notice $notice){
+    public function edit(Notee $notice){
     
         return view('admin.notices.editNotice',[
             'notice'=>$notice
@@ -51,7 +54,7 @@ class NoticeController extends Controller
     }
 
 
-    public function destroy(Notice $notice){
+    public function destroy(Notee $notice){
         $notice->delete();
         return back()->with('message','notice deleted successfully');
     }

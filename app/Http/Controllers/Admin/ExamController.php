@@ -21,12 +21,12 @@ class ExamController extends Controller
 
         $formInput = $request->validate([
             'exam_type'=>'string|required',
-    'subject'=>'string|required',
-    'class'=>'string|required',
-    'section'=>'string|required',
-     'startTime'=>'string|required',
-     'endTime'=>'string|required',
-     'startDate'=>'string|required'
+            'subject'=>'string|required',
+            'class'=>'string|required',
+            'section'=>'string|required',
+            'startTime'=>'string|required',
+            'endTime'=>'string|required',
+            'startDate'=>'string|required'
         ]);
 
         Exam::create($formInput);
@@ -53,6 +53,7 @@ class ExamController extends Controller
         return redirect('/admin/exams')->with('message','exam added successfully');
     }
 
+    
 
     public function edit(Exam $exam){
 

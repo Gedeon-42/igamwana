@@ -17,7 +17,7 @@
             {{ $message }}
         </p>
     @enderror
-        <input type="text" placeholder="full name" class="@error('FullName') error_border @enderror" name="FullName" value={{ old('FullName') }}>
+        <input type="text" placeholder="full name" class="@error('Full_name') error_border @enderror" name="Full_name" value={{ old('Full_name') }}>
     </div>
   
 </div>
@@ -100,6 +100,17 @@
     </div>
 </div>
 <div class="student-information-desc">
+    <label for="village">class <span>*</span></label>
+    <select name="yearofstudy" value="{{old('yearofstudy')}}" id="">
+        <option value="year 1" {{old('yearofstudy') == "year 1" ? 'selected':''}}>year 1</option>
+        <option value="year 2" {{old('yearofstudy') == "year 2" ? 'selected':''}}>year 2</option>
+        <option value="year 3" {{old('yearofstudy') == "year 3" ? 'selected':''}}>year 3</option>
+        <option value="year 4" {{old('yearofstudy') == "year 4" ? 'selected':''}}>year 4</option>
+        <option value="year 5" {{old('yearofstudy') == "year 5" ? 'selected':''}}>year 5</option>
+        <option value="year 6" {{old('yearofstudy') == "year 6" ? 'selected':''}}>year 6</option>
+    </select>
+</div>
+<div class="student-information-desc">
     <label for="DOB">birth date<span>*</span></label>
     {{-- <input type="date" name="DOB"  id="" placeholder="year of study"> --}}
     <div>
@@ -108,10 +119,10 @@
             {{ $message }}
         </p>
     @enderror
-        <input type="date" class="@error('DOB') border-error @enderror" name="DOB" value={{old('DOB')}}>
+        <input type="date"  name="DOB" value={{old('DOB')}}>
     </div>
 </div>
-<div class="student-information-desc">
+{{-- <div class="student-information-desc">
     <label for="village">village<span>*</span></label>
     <div>
         @error('village')
@@ -121,7 +132,7 @@
     @enderror
         <input type="text" placeholder="village" name="village" value={{old('village')}}>
     </div>
-</div>
+</div> --}}
 
 <div class="student-information-desc">
     <label for="section">section <span>*</span></label>
@@ -172,7 +183,7 @@
 </div>
 <div class="student-information-desc">
     <label for="gender">Photo<span>*</span></label>
-   <input type="file" name="image" value={{old('image')}}>
+   <input type="file" name="image">
    {{-- <img src="{{old('image')}}" alt=""> --}}
 </div>
 <div class="student-information-desc">
