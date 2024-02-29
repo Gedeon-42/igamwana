@@ -12,71 +12,27 @@
     </div>
     
     <div class="notice-body">
-        <div class="notice-description">
-            <div class="notice-edit">
-                <h1 class="notice-h1">17 june 2023</h1>
-                <div class="notice-dots">
-                    <p>...</p>
-                    <div class="edit-notice-link">
-                        <a href="/admin/notice/{notice}/edit">Edit</a>
-                        <form action="">
-                            <button>Delete</button>
-                        </form>
-                    </div>
+       @foreach ($notices as $notice)
+       <div class="notice-description">
+        <div class="notice-edit">
+            <h1 class="notice-h1">{{$notice->date}}</h1>
+            <div class="notice-dots">
+                <p>...</p>
+                <div class="edit-notice-link">
+                    <a href="/admin/notice/{notice}/edit">Edit</a>
+                    <form action="">
+                        <button>Delete</button>
+                    </form>
                 </div>
             </div>
-            
-            <h3><a href="">Gedeon mesa</a><span>5 min </span></h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa quos eligendi deleniti? Nulla itaque, perferendis quasi illo nesciunt odio neque iusto illum.</p>
         </div>
-        <div class="notice-description">
-            <div class="notice-edit">
-                <h1 class="notice-h1">17 May 2023</h1>
-                <div class="notice-dots">
-                    <p>...</p>
-                    <div class="edit-notice-link">
-                        <a href="/admin/notice/{notice}/edit">Edit</a>
-                        <form action="">
-                            <button>Delete</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <h3><a href="">Gedeon mesa</a><span>5 min </span></h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa quos eligendi deleniti? Nulla itaque, perferendis quasi illo nesciunt odio neque iusto illum.</p>
-        </div>
-        <div class="notice-description">
-            <div class="notice-edit">
-                <h1 class="notice-h1">17 february 2028</h1>
-                <div class="notice-dots">
-                    <p>...</p>
-                    <div class="edit-notice-link">
-                        <a href="/admin/notice/{notice}/edit">Edit</a>
-                        <form action="">
-                            <button>Delete</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <h3><a href="">Gedeon mesa</a><span>5 min </span></h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa quos eligendi deleniti? Nulla itaque, perferendis quasi illo nesciunt odio neque iusto illum.</p>
-        </div>
-        <div class="notice-description">
-            <div class="notice-edit">
-                <h1 class="notice-h1">5 january 2024</h1>
-                <div class="notice-dots">
-                    <p>...</p>
-                    <div class="edit-notice-link">
-                        <a href="/admin/notice/{notice}/edit">Edit</a>
-                        <form action="">
-                            <button>Delete</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <h3><a href="">Gedeon mesa</a><span>5 min </span></h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa quos eligendi deleniti? Nulla itaque, perferendis quasi illo nesciunt odio neque iusto illum.</p>
-        </div>
+        
+        <h3><a href="">{{$notice->title}}</a><span>5 min </span></h3>
+        <p>
+            {{$notice->details}}
+        </p>
+    </div>  
+       @endforeach
     </div>
 </div>
 @endsection

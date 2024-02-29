@@ -124,6 +124,10 @@ outline: none;
     height: 40px;
     border-radius: 50%;
 }
+/* .profile-pic{
+    background-color: pink;
+    
+} */
 .side-bar-admin{
     position: fixed;
     left: 0;
@@ -876,6 +880,24 @@ text-transform: capitalize;
     top: 30px;
     border-radius: 7px;
 }
+.notice-dots:hover .edit-admin-logout{
+    display: block;
+}
+.edit-admin-logout{
+    background-color: whitesmoke;
+    padding: 10px;
+    display: none;
+    width: 150px;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    border-radius: 7px;
+}
+.edit-admin-logout button{
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+}
 .edit-notice-link a{
     text-decoration: none;
     font-size: 16px;
@@ -894,4 +916,67 @@ text-transform: capitalize;
     right: 0;
     bottom: 0;
     background-color: #f9f3f380;
+}
+.container-center{
+    padding: 40px 28%;
+    background-color: var(--bg--color);
+    height: 150vh;
+    
+}
+.login-form{
+    background-color:white;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 500px;
+    border-radius: 7px;
+    box-shadow: var(--box-shadow);
+}
+.form-flex{
+    display: flex;
+    flex-direction: column;
+}
+.form-flex input{
+    width: 450px;
+    padding: 7px;
+    border: 1px solid lightgrey;
+    outline: 0;
+}
+.form-flex input:focus{
+    border-color: 1px solid  gray;
+}
+.form-flex input[type="checkbox"]{
+    width: 15px;
+    height: 15px;
+    padding: 7px;
+    border: 1px solid lightgrey;
+    margin-top: 7px;
+}
+.form-flex button{
+    width: 450px;
+    padding: 7px;
+    border: 1px solid lightgrey;
+    background-color: dodgerblue;
+    color: white;
+}
+
+.flex-password{
+    display: flex;
+    justify-content: space-between;
+}
+.keep-me{
+    display: flex;
+    gap: 10px;
+}
+.flex-password a{
+    text-decoration: none;
+}
+.h1-login{
+    text-transform: uppercase;
+    font-size: 25px !important;
+    margin: 30px 2px;
+}
+.ul-error{
+    list-style-type: none;
 }

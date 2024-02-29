@@ -133,6 +133,7 @@ Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i
             </button>
           </div>
     </div>
+    @include('Home.partials.student-event')
     {{-- team section styles --}}
     <div class="team-section-wrapper">
       <h1 class="team-course-h1"> Meet Our Team</h1>

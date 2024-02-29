@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\Admin\HostelController;
 use App\Http\Controllers\Home\AboutController;
+use App\Http\Controllers\Home\ApplicationController;
 use App\Http\Controllers\Home\ContactController;
 use App\Http\Controllers\Home\CourseController;
 use App\Http\Controllers\Home\EventController;
@@ -42,39 +43,50 @@ Route::get('/', [HomeController::class,'index']);
  Route::get('/courses',[CourseController::class,'index']);
 Route::get('/events',[EventController::class,'index']);
 Route::get('/contact',[ContactController::class,'index']);
+Route::get('/application',[ApplicationController::class,'index']);
+Route::post('/api/province', [ApplicationController::class, 'fetchProvince']);
+Route::post('/api/district', [ApplicationController::class, 'fetchDistrict']);
+Route::post('/api/sector', [ApplicationController::class, 'fetchSector']);
+Route::post('/api/cell', [ApplicationController::class, 'fetchCell']);
+Route::post('/api/village', [ApplicationController::class, 'fetchVillage']);
 
+
+
+Route::get('/register',[AdminController::class,'create']);
+Route::post('/register',[AdminController::class,'store']);
+Route::post('/logout',[AdminController::class,'logout']);
+
+Route::get('/login',[AdminController::class,'login'])->name('login')->middleware('guest');
+Route::post('/user/authenticate',[AdminController::class,'authenticate']);
+
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/admin/dashboard',[AdminController::class,'index'])->middleware('auth');
 
 // auth route
 
-Route::post('/register',[UserController::class,'register']);
-Route::post('/login',[UserController::class,'login']);
-Route::post('/logout',[UserController::class,'logout']);
 
+    // students routes
+    Route::get('/admin/students',[StudentController::class,'index']);
+    
+    //show form to create student
+    Route::get('/admin/students/create',[StudentController::class,'create'])->name('admin.createStudent')->where([]);
+    
+    // store students data
+    Route::post('/admin/students',[StudentController::class,'store'])->name('/admin/students');
+    
+    // show form to edit student
+    Route::get('/admin/students/{student}/edit',[StudentController::class,'edit'])->name('admin.editStudent');
+    
+    // route to update student
+    Route::put('/admin/students/{student}/',[StudentController::class,'update'])->name('admin.editStudent');
+    
+    //route to delete student
+    Route::delete('/admin/students/delete/{student}',[StudentController::class,'destroy']);
+    // route to get single student
+    Route::get('/admin/student/{student}',[StudentController::class,'show'])->name('admin.ShowStudent')->where([]);
 
-Route::get('/admin/dashboard',[AdminController::class,'index']);
-
-// students routes
-Route::get('/admin/students',[StudentController::class,'index']);
-
-//show form to create student
-Route::get('/admin/students/create',[StudentController::class,'create'])->name('admin.createStudent')->where([]);
-
-// store students data
-Route::post('/admin/students',[StudentController::class,'store'])->name('/admin/students');
-
-// show form to edit student
-Route::get('/admin/students/{student}/edit',[StudentController::class,'edit'])->name('admin.editStudent');
-
-// route to update student
-Route::put('/admin/students/{student}/',[StudentController::class,'update'])->name('admin.editStudent');
-
-//route to delete student
-Route::delete('/admin/students/delete/{student}',[StudentController::class,'destroy']);
-// route to get single student
-Route::get('/admin/student/{student}',[StudentController::class,'show'])->name('admin.ShowStudent')->where([]);
-
-
-//teachers routes
+    //teachers routes
 Route::get('/admin/teachers/',[TeacherController::class,'index']);
 Route::post('/admin/teacher',[TeacherController::class,'store']);
 Route::put('/admin/teacher/{teacher}',[TeacherController::class,'update']);
@@ -144,6 +156,10 @@ Route::get('/admin/hostel/{hostel}/edit',[HostelController::class,'edit']);
 Route::put('/admin/hostel/{hostel}',[HostelController::class,'update']);
 Route::get('/admin/hostel/create',[HostelController::class,'create']);
 Route::delete('/admin/hostel/{hostel}',[HostelController::class,'destroy']);
+
+});
+
+
 
 
 

@@ -38,10 +38,20 @@
             </div> 
         </div>
     </div>
-    <div class="profile-pic">
+      <div class="notice-dots">
         <img  class="p-img" src="/images/riyad3.jpg" alt="">
-        john doe
+        @auth
+        {{auth()->user()->name}}
         <i class="fas fa-angle-down"></i>
+      @endauth
+      
+        <div class="edit-admin-logout">
+        <form  action="/logout" method="POST">
+         @csrf
+          <button> Logout</button>
+        </form>
+            
+        </div>
     </div>
 </div>
     </div>
@@ -194,7 +204,7 @@
               </div>
               
             </div>
-            <div class="custom-card">
+            {{-- <div class="custom-card">
               <div class="custom-header" data-bs-toggle="collapse" href="#collapseEight">
                 <div class="link1">
                   <i class="fas fa-clock"></i>
@@ -214,8 +224,8 @@
                 </div>
               </div>
               
-            </div>
-            <div class="custom-card">
+            </div> --}}
+            {{-- <div class="custom-card">
               <div class="custom-header" data-bs-toggle="collapse" href="#collapseNine">
                 <div class="link1">
                   <i class="fas fa-house"></i>
@@ -234,7 +244,7 @@
                 </div>
               </div>
               
-            </div>
+            </div> --}}
 
           </div>
         </div>

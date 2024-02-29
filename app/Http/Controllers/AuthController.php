@@ -56,10 +56,10 @@ if(!$user || !Hash::check($formData['password'],$user->password)){
 
     }
 
-    public function logout(Request $requet){
-         auth()->user()->tokens()->delete();
-         return [
-            'message'=>'logged out'
-         ];
-    }
+    // public function logout(Request $requet){
+    //      auth()->user()->token()->delete();
+    //      return [
+    //         'message'=>'logged out'
+    //      ];
+    // }
 }

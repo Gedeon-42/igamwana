@@ -24,7 +24,7 @@
         <li><a href="/courses">Courses</a></li>
         <li><a href="/events">events</a></li>
         <li><a href="/contact">contact</a></li>
-        <li class="get-started"><a href="" >Apply</a></li>
+        <li class="get-started"><a href="/application" >Apply</a></li>
     </ul>
  </div>
         </nav>
