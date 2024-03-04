@@ -20,11 +20,11 @@ class ProvinceDistrictSeeder extends Seeder
 public function run()
 {
     // Eastern Province data
-    $province = Province::create([
+    $province1 = Province::create([
         'name' => 'Eastern Province'
     ]);
 
-    $districts = [
+    $districts1 = [
         [
             'name' => 'Bugesera',
             'sectors' => [
@@ -195,34 +195,54 @@ public function run()
         [
             'name'=>'Gatsibo',
             'sectors'=>[
-                ['Gasange'],['Gatsibo'],['Gitoki'],['Kabarore'],['Kageyo'],['Kiramuruzi'],['Kiziguro'],['Murambi'],['Ngarama'],['Nyagihanga'],['Remera'],['Rugarama'],['Rwimbogo']
+                [
+                    'name'=>'Gasange',
+                    'cells'=>['kigabire','kimana','Teme','Viro']
+                ],
+                [
+                    'name'=>'Gatsibo',
+                'cells'=>['gatsibo','Manishya','Mugera','Nyabicwamba','Nyagahanga','']
+                ],
+                [
+                    'name'=>'Gitoki',
+                    'cells'=>['Bukomane','Cyabusheshe','karubungo','Mpondwa','Nyamirama','Rubira',]
+                ],
+                [
+                    'name'=>'Kabarore',
+                    'cells'=>['kabarore','kabeza','karenge','Marimba','Nyabikiri','simbwa']
+                ],
+                [
+                    'name'=>'Kageyo',
+                    'cells'=>['Busetsa','Gituza','kintu','Nyagisozi',]
+                ],
+                //['Kiramuruzi'],['Kiziguro'],['Murambi'],['Ngarama'],['Nyagihanga'],['Remera'],['Rugarama'],['Rwimbogo']
                 ]
         ],
-        [
-            'name'=>'Ngoma',
-            'sectors'=>[
-                ['Gashanda'],['Jarama'],['Karembo'],['kazo'],['Kibugo'],['Mugesera'],['Murama'],['Mutenderi'],['Remera'],['Rukira'],['Rukumberi'],['Rurenge'],['Sake',]['Zaza']
-              ]
-        ],
-        [
-            'name'=>'Nyagatare',
-            'sectors'=>
-            [
-                ['Gatunda'],['Karama'],['Karangazi'],['Katabagemu'],['Kiyombe'],['Matimba'],['Mimuri'],['Mukama'],['Musheri'],['Nyagatare'],['Rukomo'],['Rwempasha'],['Rwimiyaga'],['Tabagwe']
-                ]
-        ] ,
-        [
-            'name'=>'Rwamagana',
-            'sectors'=>[
-                ['Fumbwe'],['Gahengeri'],['Gishali'],['Karenge'],['Kigabiro'],['Muhazi'],['Munyaga'],['Munyiginya'],['Musha'],['Muyumbu'],['Mwulire'],['Nyakariro'],['Nzige'],['Rubona']
-                ]
-        ]
+        // [
+        //     'name'=>'Ngoma',
+        //     'sectors'=>[
+        //         ['Gashanda'],['Jarama'],['Karembo'],['kazo'],['Kibugo'],['Mugesera'],['Murama'],['Mutenderi'],['Remera'],['Rukira'],['Rukumberi'],['Rurenge'],['Sake',],['Zaza']
+        //       ]
+        // ],
+        // [
+        //     'name'=>'Nyagatare',
+        //     'sectors'=>
+        //     [
+        //         ['Gatunda'],['Karama'],['Karangazi'],['Katabagemu'],['Kiyombe'],['Matimba'],['Mimuri'],['Mukama'],['Musheri'],['Nyagatare'],['Rukomo'],['Rwempasha'],['Rwimiyaga'],['Tabagwe']
+        //         ]
+        // ] ,
+        // [
+        //     'name'=>'Rwamagana',
+        //     'sectors'=>[
+        //         ['Fumbwe'],['Gahengeri'],['Gishali'],['Karenge'],['Kigabiro'],['Muhazi'],['Munyaga'],['Munyiginya'],['Musha'],['Muyumbu'],['Mwulire'],['Nyakariro'],['Nzige'],['Rubona']
+        //         ]
+        // ]
     ];
-
-    foreach ($districts as $districtData) {
+   // dd($districts1);
+    foreach ($districts1 as $districtData) {
         $district = District::create([
             'name' => $districtData['name'],
-            'province_id' => $province->id
+            'province_id' => $province1->id
         ]);
 
         foreach ($districtData['sectors'] as $sectorData) {
@@ -241,19 +261,147 @@ public function run()
     }
 
     // Western Province data
-    $province = Province::create([
+    $province2 = Province::create([
         'name' => 'Western Province'
     ]);
 
-    $district = District::create([
-        'province_id' => $province->id,
-        'name' => 'Rutsiro'
-    ]);
+            $districts2 = [
+           [
+            'name'=>'karongi',
+            'sectors'=>[
+                [
+                    'name'=>'Bwishyura',
+                    'cells'=>['Burunga','Gasura','Gitarama','Kayenzi','kibuye','kiniha','Nyarusazi','']
+                ],
+                [
+                    'name'=>'Gashari',
+                    'cells'=>['Birambo','Musasa','Mwendo','Rugobagoba','Tongati','']
+                ],
+                [
+                    'name'=>'Gishyita',
+                    'cells'=>['buhoro','cyanya','Kigarama','Munanira','musasa','ngoma',]
+                ],
+                [
+                    'name'=>'Gitesi',
+                    'cells'=>['Gasharu','Gitega','Kanunga','kirambo','Munanira','Nyamiringa','Ruhinga','Rwariro','']
+                ],
+                [
+                    'name'=>'Mubuga',
+                    'cells'=>['kigabiro','murangara','nyagatovu','Ryaruhanga']
+                ],
+                [
+                    'name'=>'Murambi',
+                    'cells'=>['Mubuga','Muhororo','Nkoto','Nyarunyinaya','Shyembe','']
+                ],
+                [
+                    'name'=>'Murundi',
+                    'cells'=>['Bukiro','Kabaya','kamina','kareba','Nyamushihi','Nzaratsi']
+                ],
+                [
+                    'name'=>'Mutuntu',
+                    'cells'=>['Byogo','Gasharu','Gisayura','Kanyege','kinyozwe','Murengezo','Rwufi','']
+                ],
+                [
+                'name'=>'Rubengera',
+                'cells'=>['Bubazi','Gacaca','Gisanze','Gitwa','kibirizi','Mataba','Nyarugenge','Ruragwe','']
+                ],
+                [
+                    'name'=>'Rugabano',
+                    'cells'=>['Gisiza','Gitega','Gitovu','Kabuga','mubuga','Mucyimba','Rufungo','Rwungo','Tyazo','']
+                ],
+                [
+                    'name'=>'Ruganda',
+                    'cells'=>['Biguhu','kabingo','Kinyovu','Kivumu','Nyabikeri','Nyamugwagwa','Rubona','Rugobagoba',]
+                ],
+                [
+                    'name'=> 'Rwankuba',
+                    'cells'=>['Bigugu','Bisesero','Gasata','Munini','Nyakamira','Nyarusanga','Rubazo','Rubumba','']
+                ],
+                [
+                    'name'=>'Twumba',
+                    'cells'=>['Bihumbe','Gakuta','Gisovu','Gitabura','kavumu','murehe','rutabi','']
+                ]
+            ]
+                ],
+                [
+                    'name'=>'Ngororero',
+                    'sectors'=>[
+                        [
+                            'name'=>'Bwira',
+                            'cells'=>['Bungwe','Cyahafi','Gashubi','Kabarondo','Ruhindage']
+                        ],
+                        [
+                            'name'=>'Gatumba',
+                            'cells'=>['cyome','Gatsibo','kamasiga','Karambo','Ruhanga','Rusumo','']
+                        ],
+                        [
+                            'name'=>'Hindiro',
+                            'cells'=>['Gatare','Gatega','kajinge','Marantima','Rugendabari','Runyinya']
+                        ],
+                        [
+                            'name'=>'kabaya',
+                            'cells'=>['Busunzu','Gaseke','Kabaya','Mwendo','Ngoma','Nyenyeri',]
+                        ],
+                        [
+                            'name'=>'kageyo',
+                            'cells'=>['kageshi','kirwa','Mukore','Muramba','nyamata','rwamamara']
+                        ],
+                        [
+                            'name'=>'kavumu',
+                            'cells'=>['Birembo','Gitwa','Murinzi','Nyamugeyo','Rugeshi','Tetero',]
+                        ],
+                        [
+                            'name'=>'matayazo',
+                            'cells'=>['Binana','Gitega','Matare','rutare','Rwamiko']
+                        ],
+                        [
+                            'name'=>'Muhanda',
+                            'cells'=>['bugarura','Gasiza','Mashya','Nganzo','ngoma','rutagara']
+                        ],
+                        [
+                            'name'=>'muhororo',
+                            'cells'=>['Bweramana','mubuga','myiha','rugogwe','rusororo','sanza']
+                        ],
+                        [
+                            'name'=>'ndaro',
+                            'cells'=>['bijyojyo','bitabage','kabageshi','kibanda','kinyovi',]
+                        ],
+                        [
+                            'name'=>'ngororero',
+                            'cells'=>['Kaseke','kazabe','mugano','nyange','rususa','torero','']
+                        ],
+                        [
+                            'name'=>'Nyange',
+                            'cells'=>['Bambiro','Gaseke','Nsibo','vuganyana','']
+                        ],
+                        [
+                            'name'=>'sovu',
+                            'cells'=>['Birembo','kagano','kanyana','musenyi','nyabipfura','Rutovu']
+                        ]
+                    ]
+                ]
 
-    Sector::create([
-        'district_id' => $district->id,
-        'name' => 'Mamba'
-    ]);
+            ];
+
+            foreach($districts2 as $districtData){
+                $district = District::create([
+                'name'=>$districtData['name'],
+                'province_id'=>$province2->id
+            ]);
+            foreach($districtData['sectors'] as $sectorData){
+                    $sector = Sector::create([
+                    'district_id'=>$district->id,
+                    'name'=>$sectorData['name']
+                ]);
+
+                foreach($sectorData['cells'] as $cellName){
+                    Cell::create([
+                    'sector_id'=>$sector->id,
+                      'name'=>$cellName
+                                     ]);
+                }
+            }
+            }
 }
 
 }

@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('year_level');
+            $table->string('section');
+            $table->string('email');
+            $table->
             $table->timestamps();
         });
     }

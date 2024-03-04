@@ -18,6 +18,7 @@ class ApplicationController extends Controller
         return view('Home.pages.applicationForm',$data);
     }
 
+
     public function fetchDistrict(Request $request)
     {
         $data['districts'] = District::where("province_id", $request->province_id)
@@ -25,6 +26,7 @@ class ApplicationController extends Controller
   
         return response()->json($data);
     }
+    
     public function fetchSector(Request $request)
     {
         $data['sectors'] = Sector::where("district_id", $request->district_id)

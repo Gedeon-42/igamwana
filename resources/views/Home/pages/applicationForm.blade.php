@@ -19,7 +19,7 @@
                 <form>
                     <div class="form-group mb-3">
                         <select  id="province-dropdown" class="form-control">
-                            <option value="">-- Select Province --</option>
+                            <option value="">Select Province</option>
                             @foreach ($provinces as $data)
                             <option value="{{$data->id}}">
                                 {{$data->name}}
@@ -35,6 +35,10 @@
                         <select id="sector-dropdown" class="form-control">
                         </select>
                     </div>
+                    <div class="form-group">
+                        <select id="cell-dropdown" class="form-control">
+                        </select>
+                    </div>
                 </form>
             </div>
         </div>
@@ -46,7 +50,7 @@
   
             /*------------------------------------------
             --------------------------------------------
-            Country Dropdown Change Event
+            province Dropdown Change Event
             --------------------------------------------
             --------------------------------------------*/
             $('#province-dropdown').on('change', function () {
@@ -66,14 +70,14 @@
                             $("#district-dropdown").append('<option value="' + value
                                 .id + '">' + value.name + '</option>');
                         });
-                        $('#sector-dropdown').html('<option value="">-- Select sector --</option>');
+                        $('#sector-dropdown').html('<option value="">Select sector </option>');
                     }
                 });
             });
   
             /*------------------------------------------
             --------------------------------------------
-            State Dropdown Change Event
+            district Dropdown Change Event
             --------------------------------------------
             --------------------------------------------*/
             $('#district-dropdown').on('change', function () {
@@ -88,15 +92,38 @@
                     },
                     dataType: 'json',
                     success: function (res) {
-                        $('#sector-dropdown').html('<option value="">-- Select sector --</option>');
+                        $('#sector-dropdown').html('<option value="">Select sector</option>');
                         $.each(res.sectors, function (key, value) {
                             $("#sector-dropdown").append('<option value="' + value
+                                .id + '">' + value.name + '</option>');
+                        });
+                        
+                    }
+                });
+            });
+  
+        // sector dropdown
+            $('#sector-dropdown').on('change', function () {
+                var idState = this.value;
+                $("#cell-dropdown").html('');
+                $.ajax({
+                    url: "{{url('/api/cell')}}",
+                    type: "POST",
+                    data: {
+                        sector_id: idState,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (res) {
+                        $('#cell-dropdown').html('<option value=""> Select cell</option>');
+                        $.each(res.cells, function (key, value) {
+                            $("#cell-dropdown").append('<option value="' + value
                                 .id + '">' + value.name + '</option>');
                         });
                     }
                 });
             });
-  
+
         });
     </script>
 </body>
