@@ -20,7 +20,10 @@ return new class extends Migration
             $table->string('year_level');
             $table->string('section');
             $table->string('email');
-            $table->
+            $table->string('province');
+            $table->string('district');
+            $table->string('sector');
+            $table->string('cell');
             $table->timestamps();
         });
     }
